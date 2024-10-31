@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+      <div class="titulo col-12">
+        <h1> Lista de Tarefas </h1>
+        <div>
+          <div class="border1"></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="textodesc col-12">
+        <p id="primeiro">Insira o texto no campo de entrada para adicionar itens à sua lista de tarefas. </p>
+        <p id="segundo">Click em cima do item na lista para marcalo como concluido</p>
+        <p id="terceiro"> Click no "X" para remover o item da sua lista </p>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-12">
+        <input [(ngModel)]="novaTarefa" type="text" placeholder="Novo Item..." maxlength="27">
+        <button (click)="adicionarTarefa()"><i class="fas fa-pencil-alt"></i></button>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="listaItems col-12">
+        <ul class="col-12 offset-0 col-sm-8 offset-sm-2">
+          <li *ngFor="let tarefa of tarefas; let i = index">
+            <span (click)="tarefaCompleta(i)" [class.completed]="tarefa.completa">{{ tarefa.nome }}</span>
+            <button (click)="removerTarefa(i)">X</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
